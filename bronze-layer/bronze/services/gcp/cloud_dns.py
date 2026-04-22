@@ -1,131 +1,133 @@
-from bronze.services.gcp.types import GCPDecisionRule, GCPMetricSignal, GCPServiceCatalog
+"""GCP Cloud DNS service definition - pure config, no logic.
 
-CLOUD_DNS_SERVICE = GCPServiceCatalog(
-    service_name="Cloud DNS",
-    status_idle=[
-        "dns.googleapis.com/query_count",
-        "dns.googleapis.com/record_set_count",
-        "dns.googleapis.com/rrset_count",
-    ],
-    status_overprovisioned=[
-        "dns.googleapis.com/query_count",
-        "dns.googleapis.com/query_bytes_total",
-        "dns.googleapis.com/response_latency",
-    ],
-    metrics=[
-        # --- Idle signals ---
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/query_count",
-            recommendation_type="Idle",
-            signal="No DNS queries",
-            threshold="~0 over 14-30 days",
-        ),
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/record_set_count",
-            recommendation_type="Idle",
-            signal="Minimal records — zone likely unused",
-            threshold="< 5 records + 0 queries over 30 days",
-        ),
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/rrset_count",
-            recommendation_type="Idle",
-            signal="Underutilized capacity",
-            threshold="Low count + no queries",
-        ),
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/query_count",
-            recommendation_type="Idle",
-            signal="Core record types (A/AAAA/CNAME) unused",
-            threshold="Primary record types = 0",
-        ),
-        # --- Overprovisioned signals ---
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/query_count",
-            recommendation_type="Overprovisioned",
-            signal="Excessive query volume — optimize delegation",
-            threshold="> 10M queries/month",
-        ),
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/query_bytes_total",
-            recommendation_type="Overprovisioned",
-            signal="High data transfer — repetitive query patterns",
-            threshold="High bytes + repetitive patterns",
-        ),
-        GCPMetricSignal(
-            metric_type="dns.googleapis.com/response_latency",
-            recommendation_type="Overprovisioned",
-            signal="Slow DNS responses",
-            threshold="P95 > 100ms",
-        ),
-    ],
-    decision_rules=[
-        GCPDecisionRule(
-            finding="Idle: query_count = 0 for 30+ days",
-            target_type="Public",
-            recommended_action="Delete DNS zone",
-            example="gcloud dns managed-zones delete ZONE --project=PROJECT",
-            notes="Validate GKE/Compute Engine dependencies first",
-        ),
-        GCPDecisionRule(
-            finding="Idle: < 5 records + 0 queries",
-            target_type="Any",
-            recommended_action="Delete DNS zone",
-            example="gcloud dns managed-zones delete oldzone.com",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Private zone with no VPC networks attached",
-            target_type="Private",
-            recommended_action="Delete zone",
-            example="Validate no VPC peering/forwarding before deletion",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Overprovisioned: > 10M queries/month",
-            target_type="Public",
-            recommended_action="Delegate to Cloud Load Balancer",
-            example="Use LB with global anycast",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="High query_count + repetitive patterns",
-            target_type="Public",
-            recommended_action="Implement wildcard records",
-            example="*.example.com -> loadbalancer",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Orphaned forwarding targets unreachable",
-            target_type="Forwarding",
-            recommended_action="Delete or update forwarding targets",
-            example="Fix unreachable IP targets",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Single-region query concentration (95%+ from 1 region)",
-            target_type="Public",
-            recommended_action="Add Cloud Load Balancer for regional routing",
-            example="Regional LB + global anycast",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Private zone with no Private Service Connect",
-            target_type="Private",
-            recommended_action="Convert to public or delete",
-            example="Link to single VPC or delete",
-            notes="",
+Declares how to fetch Cloud DNS configurations and metrics from GCP,
+and which Iceberg tables to write them to.
+
+Notes:
+- Cloud DNS manages DNS zones and record sets
+- resource_id is composed as "project_id.zone_name" for unique identification
+- Metrics are collected from dns.googleapis.com namespace
+- Idle signal: no DNS queries over 14-30 days
+- Overprovisioned signal: high query volume with poor performance
+"""
+
+from google.cloud import dns_v1
+
+from bronze.config.table_config import TableConfig
+from bronze.services.base import MetricDefinition, MetricSpec, ResourceFetcher, ServiceDefinition
+
+# ---------------------------------------------------------------------------
+# Table configs
+# ---------------------------------------------------------------------------
+
+CLOUD_DNS_TABLE = TableConfig(
+    table_name="bronze_gcp_cloud_dns",
+    s3_path_suffix="gcp/cloud_dns",
+    key_columns=("client_id", "account_id", "resource_id"),
+    partition_columns=("client_id", "account_id", "year_month"),
+    column_schema={
+        "resource_id": "string",            # project_id.zone_name
+        "resource_name": "string",          # DNS zone display name
+        "project_id": "string",
+        "zone_name": "string",
+        "description": "string",
+        "dns_name": "string",               # DNS zone name (e.g., example.com.)
+        "visibility": "string",             # PUBLIC, PRIVATE
+        "creation_time": "string",
+        "labels": "map<string,string>",
+        "name_server_set": "string",       # Name server set for private zones
+        "peering_config": "string",         # DNS peering configuration
+        "forwarding_config": "string",      # DNS forwarding configuration
+        "service_directory_config": "string", # Service Directory config
+        "record_set_count": "int",          # Number of record sets
+        "client_id": "string",
+        "account_id": "string",
+        "cloud_name": "string",
+        "year_month": "string",
+        "ingestion_timestamp": "string",
+        "job_runtime_utc": "timestamp",
+    },
+)
+
+CLOUD_DNS_METRICS_TABLE = TableConfig(
+    table_name="bronze_gcp_metrics_v2",
+    s3_path_suffix="gcp/metrics",
+    key_columns=("client_id", "account_id", "resource_id", "date", "metric_name", "aggregation_type"),
+    partition_columns=("client_id", "account_id", "year_month"),
+    column_schema={
+        "account_id": "string",
+        "aggregation_type": "string",
+        "client_id": "string",
+        "cloud_name": "string",
+        "date": "string",
+        "ingestion_timestamp": "string",
+        "job_runtime_utc": "timestamp",
+        "metric_date": "string",
+        "metric_name": "string",
+        "metric_type": "string",
+        "metric_unit": "string",
+        "metric_value": "double",
+        "namespace": "string",
+        "region": "string",
+        "resource_id": "string",
+        "resource_name": "string",
+        "service_name": "string",
+        "unit": "string",
+        "year_month": "string",
+    },
+)
+
+# ---------------------------------------------------------------------------
+# Field mappings: GCP SDK attribute dot-path -> output column name
+# ---------------------------------------------------------------------------
+
+CLOUD_DNS_FIELD_MAPPING = {
+    "name": "zone_name",
+    "description": "description",
+    "dns_name": "dns_name",
+    "visibility": "visibility",
+    "creation_time": "creation_time",
+    "labels": "labels",
+    "name_server_set": "name_server_set",
+}
+
+# ---------------------------------------------------------------------------
+# Service definition
+# ---------------------------------------------------------------------------
+
+CLOUD_DNS_SERVICE = ServiceDefinition(
+    name="Cloud DNS",
+    namespace="dns.googleapis.com",
+    resource_fetchers=[
+        ResourceFetcher(
+            sdk_client_class=dns_v1.ManagedZonesClient,
+            list_method="list_managed_zones",
+            field_mapping=CLOUD_DNS_FIELD_MAPPING,
+            table_config=CLOUD_DNS_TABLE,
+            composite_id_fields=("project_id", "zone_name"),
         ),
     ],
-    future_plans=[
-        "Integrate query_count percentiles into bronze layer.",
-        "Add per-record-type query analysis.",
-        "Update backend/frontend/RDS for VPC linking status.",
-        "Add Private Service Connect integration.",
-        "Cloud Load Balancer integration for high-volume delegation.",
-    ],
-    references=[
-        "https://cloud.google.com/dns/docs/overview",
-        "https://cloud.google.com/monitoring/api/metrics_gcp#gcp-dns",
-        "https://cloud.google.com/dns/pricing",
-    ],
+    metrics=MetricDefinition(
+        metric_specs=[
+            # Query metrics
+            MetricSpec("dns.googleapis.com/query_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/response_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/success_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/rcode_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            
+            # Latency metrics
+            MetricSpec("dns.googleapis.com/latency", unit="Milliseconds", aggregation="Mean", interval="PT5M"),
+            
+            # Error metrics
+            MetricSpec("dns.googleapis.com/nxdomain_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/servfail_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/formerr_count", unit="Count", aggregation="Sum", interval="PT5M"),
+            
+            # Resource metrics
+            MetricSpec("dns.googleapis.com/record_set_count", unit="Count", aggregation="Gauge", interval="PT5M"),
+            MetricSpec("dns.googleapis.com/zone_count", unit="Count", aggregation="Gauge", interval="PT5M"),
+        ],
+        resource_id_field="resource_id",
+        table_config=CLOUD_DNS_METRICS_TABLE,
+    ),
 )
