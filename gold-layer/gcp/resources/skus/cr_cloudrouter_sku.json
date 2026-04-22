@@ -1,0 +1,44 @@
+{
+  "vpn_tunnel": {
+    "region": "us-central1",
+    "description": "VPN tunnel attached to Cloud Router (HA VPN or Classic VPN). Source: cloud.google.com/network-connectivity/pricing",
+    "hourly_price": 0.05,
+    "monthly_price": 36.5,
+    "annual_price": 438.0
+  },
+  "nat_gateway": {
+    "region": "us-central1",
+    "description": "Cloud NAT gateway hourly charge per VM instance (capped at 32 VMs = $0.044/hr flat). Source: cloud.google.com/nat/pricing",
+    "hourly_price_per_vm": 0.0014,
+    "hourly_price_cap": 0.044,
+    "vm_cap": 32,
+    "monthly_price_per_vm": 1.0208,
+    "annual_price_per_vm": 12.2664
+  },
+  "nat_ip": {
+    "region": "us-central1",
+    "description": "Cloud NAT external IP address (static or ephemeral) used by a NAT gateway. Source: cloud.google.com/nat/pricing",
+    "hourly_price": 0.005,
+    "monthly_price": 3.65,
+    "annual_price": 43.8
+  },
+  "nat_data_processing": {
+    "region": "global",
+    "description": "Cloud NAT data processing charge per GiB (inbound + outbound). Same across all regions. Source: cloud.google.com/nat/pricing",
+    "price_per_gib": 0.045
+  },
+  "cloud_router": {
+    "region": "us-central1",
+    "description": "Cloud Router itself is free of charge. BGP control plane traffic costs are negligible. Source: cloud.google.com/network-connectivity/pricing",
+    "hourly_price": 0.0,
+    "monthly_price": 0.0,
+    "annual_price": 0.0
+  },
+  "interconnect_vlan": {
+    "region": "us-central1",
+    "description": "Interconnect VLAN attachment 1-10 Gbps. Source: cloud.google.com/network-connectivity/pricing",
+    "hourly_price": 0.10,
+    "monthly_price": 73.0,
+    "annual_price": 876.0
+  }
+}

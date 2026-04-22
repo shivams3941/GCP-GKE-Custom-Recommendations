@@ -1,0 +1,378 @@
+{
+  "_metadata": {
+    "source": "https://cloud.google.com/dataflow/pricing",
+    "region": "us-central1",
+    "note": "Dataflow bills its own vCPU and memory rates — NOT Compute Engine rates. Workers are Compute Engine VMs but Dataflow emits its own billing SKUs.",
+    "batch_vcpu_hourly": 0.056,
+    "batch_memory_hourly_per_gib": 0.003557,
+    "streaming_vcpu_hourly": 0.069,
+    "streaming_memory_hourly_per_gib": 0.003557
+  },
+  "batch": {
+    "job_type": "JOB_TYPE_BATCH",
+    "region": "us-central1",
+    "vcpu_hourly_price": 0.056,
+    "memory_hourly_price_per_gib": 0.003557,
+    "machine_types": [
+      {
+        "machine_type": "n1-standard-1",
+        "vcpus": 1,
+        "ram_gb": 3.75,
+        "hourly_price": 0.069339,
+        "monthly_price": 50.6175,
+        "annual_price": 607.41,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "n1-standard-2",
+        "vcpus": 2,
+        "ram_gb": 7.5,
+        "hourly_price": 0.138678,
+        "monthly_price": 101.235,
+        "annual_price": 1214.82,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "n1-standard-4",
+        "vcpus": 4,
+        "ram_gb": 15,
+        "hourly_price": 0.277355,
+        "monthly_price": 202.469,
+        "annual_price": 2429.63,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "n1-standard-8",
+        "vcpus": 8,
+        "ram_gb": 30,
+        "hourly_price": 0.554711,
+        "monthly_price": 404.939,
+        "annual_price": 4859.27,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "n1-standard-16",
+        "vcpus": 16,
+        "ram_gb": 60,
+        "hourly_price": 1.109421,
+        "monthly_price": 809.877,
+        "annual_price": 9719.53,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "n1-standard-32",
+        "vcpus": 32,
+        "ram_gb": 120,
+        "hourly_price": 2.218843,
+        "monthly_price": 1619.755,
+        "annual_price": 19437.06,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "n1-standard-64",
+        "vcpus": 64,
+        "ram_gb": 240,
+        "hourly_price": 4.437685,
+        "monthly_price": 3239.51,
+        "annual_price": 38874.12,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "n1-highmem-2",
+        "vcpus": 2,
+        "ram_gb": 13,
+        "hourly_price": 0.158241,
+        "monthly_price": 115.516,
+        "annual_price": 1386.19,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "n1-highmem-4",
+        "vcpus": 4,
+        "ram_gb": 26,
+        "hourly_price": 0.316481,
+        "monthly_price": 231.031,
+        "annual_price": 2772.37,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "n1-highmem-8",
+        "vcpus": 8,
+        "ram_gb": 52,
+        "hourly_price": 0.632963,
+        "monthly_price": 462.063,
+        "annual_price": 5544.75,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "n1-highmem-16",
+        "vcpus": 16,
+        "ram_gb": 104,
+        "hourly_price": 1.265925,
+        "monthly_price": 924.125,
+        "annual_price": 11089.5,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "n1-highmem-32",
+        "vcpus": 32,
+        "ram_gb": 208,
+        "hourly_price": 2.531851,
+        "monthly_price": 1848.251,
+        "annual_price": 22179.01,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "n1-highcpu-2",
+        "vcpus": 2,
+        "ram_gb": 1.8,
+        "hourly_price": 0.118402,
+        "monthly_price": 86.433,
+        "annual_price": 1037.2,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "n1-highcpu-4",
+        "vcpus": 4,
+        "ram_gb": 3.6,
+        "hourly_price": 0.236804,
+        "monthly_price": 172.867,
+        "annual_price": 2074.4,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "n1-highcpu-8",
+        "vcpus": 8,
+        "ram_gb": 7.2,
+        "hourly_price": 0.473608,
+        "monthly_price": 345.734,
+        "annual_price": 4148.81,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "n1-highcpu-16",
+        "vcpus": 16,
+        "ram_gb": 14.4,
+        "hourly_price": 0.947216,
+        "monthly_price": 691.468,
+        "annual_price": 8297.61,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "n1-highcpu-32",
+        "vcpus": 32,
+        "ram_gb": 28.8,
+        "hourly_price": 1.894431,
+        "monthly_price": 1382.935,
+        "annual_price": 16595.22,
+        "ordinal": 17
+      },
+      {
+        "machine_type": "n2-standard-2",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.140456,
+        "monthly_price": 102.533,
+        "annual_price": 1229.99,
+        "ordinal": 18
+      },
+      {
+        "machine_type": "n2-standard-4",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.280911,
+        "monthly_price": 205.065,
+        "annual_price": 2459.78,
+        "ordinal": 19
+      },
+      {
+        "machine_type": "n2-standard-8",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.561823,
+        "monthly_price": 410.131,
+        "annual_price": 4921.57,
+        "ordinal": 20
+      },
+      {
+        "machine_type": "n2-standard-16",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 1.123645,
+        "monthly_price": 820.261,
+        "annual_price": 9843.13,
+        "ordinal": 21
+      },
+      {
+        "machine_type": "n2-standard-32",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 2.247291,
+        "monthly_price": 1640.522,
+        "annual_price": 19686.27,
+        "ordinal": 22
+      },
+      {
+        "machine_type": "e2-standard-2",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.140456,
+        "monthly_price": 102.533,
+        "annual_price": 1229.99,
+        "ordinal": 23
+      },
+      {
+        "machine_type": "e2-standard-4",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.280911,
+        "monthly_price": 205.065,
+        "annual_price": 2459.78,
+        "ordinal": 24
+      },
+      {
+        "machine_type": "e2-standard-8",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.561823,
+        "monthly_price": 410.131,
+        "annual_price": 4921.57,
+        "ordinal": 25
+      },
+      {
+        "machine_type": "e2-standard-16",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 1.123645,
+        "monthly_price": 820.261,
+        "annual_price": 9843.13,
+        "ordinal": 26
+      },
+      {
+        "machine_type": "c2-standard-4",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.280911,
+        "monthly_price": 205.065,
+        "annual_price": 2459.78,
+        "ordinal": 27
+      },
+      {
+        "machine_type": "c2-standard-8",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.561823,
+        "monthly_price": 410.131,
+        "annual_price": 4921.57,
+        "ordinal": 28
+      },
+      {
+        "machine_type": "c2-standard-16",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 1.123645,
+        "monthly_price": 820.261,
+        "annual_price": 9843.13,
+        "ordinal": 29
+      },
+      {
+        "machine_type": "c2-standard-30",
+        "vcpus": 30,
+        "ram_gb": 120,
+        "hourly_price": 2.106840,
+        "monthly_price": 1537.993,
+        "annual_price": 18455.92,
+        "ordinal": 30
+      },
+      {
+        "machine_type": "c2-standard-60",
+        "vcpus": 60,
+        "ram_gb": 240,
+        "hourly_price": 4.213680,
+        "monthly_price": 3075.986,
+        "annual_price": 36911.84,
+        "ordinal": 31
+      }
+    ]
+  },
+  "streaming": {
+    "job_type": "JOB_TYPE_STREAMING",
+    "region": "us-central1",
+    "vcpu_hourly_price": 0.069,
+    "memory_hourly_price_per_gib": 0.003557,
+    "machine_types": [
+      {
+        "machine_type": "n1-standard-4",
+        "vcpus": 4,
+        "ram_gb": 15,
+        "hourly_price": 0.329355,
+        "monthly_price": 240.429,
+        "annual_price": 2885.15,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "n1-standard-8",
+        "vcpus": 8,
+        "ram_gb": 30,
+        "hourly_price": 0.658711,
+        "monthly_price": 480.859,
+        "annual_price": 5770.31,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "n1-standard-16",
+        "vcpus": 16,
+        "ram_gb": 60,
+        "hourly_price": 1.317421,
+        "monthly_price": 961.717,
+        "annual_price": 11540.61,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "n1-standard-32",
+        "vcpus": 32,
+        "ram_gb": 120,
+        "hourly_price": 2.634843,
+        "monthly_price": 1923.435,
+        "annual_price": 23081.22,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "n1-highmem-4",
+        "vcpus": 4,
+        "ram_gb": 26,
+        "hourly_price": 0.368482,
+        "monthly_price": 269.0,
+        "annual_price": 3228.0,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "n1-highmem-8",
+        "vcpus": 8,
+        "ram_gb": 52,
+        "hourly_price": 0.736963,
+        "monthly_price": 537.983,
+        "annual_price": 6455.8,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "n2-standard-4",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.332912,
+        "monthly_price": 243.026,
+        "annual_price": 2916.31,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "n2-standard-8",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.665824,
+        "monthly_price": 486.052,
+        "annual_price": 5832.62,
+        "ordinal": 8
+      }
+    ]
+  }
+}
