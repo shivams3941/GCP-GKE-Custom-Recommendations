@@ -1,0 +1,1834 @@
+{
+  "c3d": {
+    "family": "c3d",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.029563,
+    "ram_hourly_price_per_gb": 0.003959,
+    "skus": [
+      {
+        "sku_id": "0397-2138-AD3F",
+        "description": "Sole Tenancy Premium for C3D Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0029563
+      },
+      {
+        "sku_id": "46C0-C090-DCB4",
+        "description": "C3D Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003959
+      },
+      {
+        "sku_id": "4D32-3C2A-5E88",
+        "description": "Sole Tenancy Premium for C3D Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0003959
+      },
+      {
+        "sku_id": "79E9-0431-3CD3",
+        "description": "C3D Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003959
+      },
+      {
+        "sku_id": "A936-8FEA-DA16",
+        "description": "C3D Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.029563
+      },
+      {
+        "sku_id": "CEE0-1AE0-3422",
+        "description": "C3D Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.029563
+      }
+    ]
+  },
+  "n2": {
+    "family": "n2",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.031611,
+    "ram_hourly_price_per_gb": 0.004237,
+    "skus": [
+      {
+        "sku_id": "04AB-D481-4CDD",
+        "description": "N2 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.031611
+      },
+      {
+        "sku_id": "1735-32CE-8392",
+        "description": "Sole Tenancy Premium for N2 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0031611
+      },
+      {
+        "sku_id": "3695-E721-737D",
+        "description": "Sole Tenancy Premium for N2 Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0004237
+      },
+      {
+        "sku_id": "3E94-1AB5-33F5",
+        "description": "N2 Custom Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03319155
+      },
+      {
+        "sku_id": "5304-5146-9088",
+        "description": "N2 Custom Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00444885
+      },
+      {
+        "sku_id": "5B01-D157-A097",
+        "description": "N2 Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.004237
+      },
+      {
+        "sku_id": "7E17-EBF5-EF56",
+        "description": "Sole Tenancy Overcommit Premium for N2 Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00105925
+      },
+      {
+        "sku_id": "A8F6-5698-E691",
+        "description": "N2 Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.004237
+      },
+      {
+        "sku_id": "B27B-84EF-C49C",
+        "description": "Sole Tenancy Overcommit Premium for N2 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.00790275
+      },
+      {
+        "sku_id": "BB77-5FDA-69D9",
+        "description": "N2 Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.031611
+      },
+      {
+        "sku_id": "E8A6-06D8-F69C",
+        "description": "N2 Custom Extended Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00955
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "n2-highcpu-2",
+        "family": "n2",
+        "vcpus": 2,
+        "ram_gb": 2,
+        "hourly_price": 0.071696,
+        "monthly_price": 52.3381,
+        "annual_price": 628.057,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "n2-standard-2",
+        "family": "n2",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.097118,
+        "monthly_price": 70.8961,
+        "annual_price": 850.7537,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "n2-highmem-2",
+        "family": "n2",
+        "vcpus": 2,
+        "ram_gb": 16,
+        "hourly_price": 0.131014,
+        "monthly_price": 95.6402,
+        "annual_price": 1147.6826,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "n2-highcpu-4",
+        "family": "n2",
+        "vcpus": 4,
+        "ram_gb": 4,
+        "hourly_price": 0.143392,
+        "monthly_price": 104.6762,
+        "annual_price": 1256.1139,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "n2-standard-4",
+        "family": "n2",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.194236,
+        "monthly_price": 141.7923,
+        "annual_price": 1701.5074,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "n2-highmem-4",
+        "family": "n2",
+        "vcpus": 4,
+        "ram_gb": 32,
+        "hourly_price": 0.262028,
+        "monthly_price": 191.2804,
+        "annual_price": 2295.3653,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "n2-highcpu-8",
+        "family": "n2",
+        "vcpus": 8,
+        "ram_gb": 8,
+        "hourly_price": 0.286784,
+        "monthly_price": 209.3523,
+        "annual_price": 2512.2278,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "n2-standard-8",
+        "family": "n2",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.388472,
+        "monthly_price": 283.5846,
+        "annual_price": 3403.0147,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "n2-highmem-8",
+        "family": "n2",
+        "vcpus": 8,
+        "ram_gb": 64,
+        "hourly_price": 0.524056,
+        "monthly_price": 382.5609,
+        "annual_price": 4590.7306,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "n2-highcpu-16",
+        "family": "n2",
+        "vcpus": 16,
+        "ram_gb": 16,
+        "hourly_price": 0.573568,
+        "monthly_price": 418.7046,
+        "annual_price": 5024.4557,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "n2-standard-16",
+        "family": "n2",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.776944,
+        "monthly_price": 567.1691,
+        "annual_price": 6806.0294,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "n2-highmem-16",
+        "family": "n2",
+        "vcpus": 16,
+        "ram_gb": 128,
+        "hourly_price": 1.048112,
+        "monthly_price": 765.1218,
+        "annual_price": 9181.4611,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "n2-highcpu-32",
+        "family": "n2",
+        "vcpus": 32,
+        "ram_gb": 32,
+        "hourly_price": 1.147136,
+        "monthly_price": 837.4093,
+        "annual_price": 10048.9114,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "n2-standard-32",
+        "family": "n2",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.553888,
+        "monthly_price": 1134.3382,
+        "annual_price": 13612.0589,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "n2-highcpu-48",
+        "family": "n2",
+        "vcpus": 48,
+        "ram_gb": 48,
+        "hourly_price": 1.720704,
+        "monthly_price": 1256.1139,
+        "annual_price": 15073.367,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "n2-highmem-32",
+        "family": "n2",
+        "vcpus": 32,
+        "ram_gb": 256,
+        "hourly_price": 2.096224,
+        "monthly_price": 1530.2435,
+        "annual_price": 18362.9222,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "n2-highcpu-64",
+        "family": "n2",
+        "vcpus": 64,
+        "ram_gb": 64,
+        "hourly_price": 2.294272,
+        "monthly_price": 1674.8186,
+        "annual_price": 20097.8227,
+        "ordinal": 17
+      },
+      {
+        "machine_type": "n2-standard-48",
+        "family": "n2",
+        "vcpus": 48,
+        "ram_gb": 192,
+        "hourly_price": 2.330832,
+        "monthly_price": 1701.5074,
+        "annual_price": 20418.0883,
+        "ordinal": 18
+      },
+      {
+        "machine_type": "n2-highcpu-80",
+        "family": "n2",
+        "vcpus": 80,
+        "ram_gb": 80,
+        "hourly_price": 2.86784,
+        "monthly_price": 2093.5232,
+        "annual_price": 25122.2784,
+        "ordinal": 19
+      },
+      {
+        "machine_type": "n2-standard-64",
+        "family": "n2",
+        "vcpus": 64,
+        "ram_gb": 256,
+        "hourly_price": 3.107776,
+        "monthly_price": 2268.6765,
+        "annual_price": 27224.1178,
+        "ordinal": 20
+      },
+      {
+        "machine_type": "n2-highmem-48",
+        "family": "n2",
+        "vcpus": 48,
+        "ram_gb": 384,
+        "hourly_price": 3.144336,
+        "monthly_price": 2295.3653,
+        "annual_price": 27544.3834,
+        "ordinal": 21
+      },
+      {
+        "machine_type": "n2-highcpu-96",
+        "family": "n2",
+        "vcpus": 96,
+        "ram_gb": 96,
+        "hourly_price": 3.441408,
+        "monthly_price": 2512.2278,
+        "annual_price": 30146.7341,
+        "ordinal": 22
+      },
+      {
+        "machine_type": "n2-standard-80",
+        "family": "n2",
+        "vcpus": 80,
+        "ram_gb": 320,
+        "hourly_price": 3.88472,
+        "monthly_price": 2835.8456,
+        "annual_price": 34030.1472,
+        "ordinal": 23
+      },
+      {
+        "machine_type": "n2-highmem-64",
+        "family": "n2",
+        "vcpus": 64,
+        "ram_gb": 512,
+        "hourly_price": 4.192448,
+        "monthly_price": 3060.487,
+        "annual_price": 36725.8445,
+        "ordinal": 24
+      },
+      {
+        "machine_type": "n2-standard-96",
+        "family": "n2",
+        "vcpus": 96,
+        "ram_gb": 384,
+        "hourly_price": 4.661664,
+        "monthly_price": 3403.0147,
+        "annual_price": 40836.1766,
+        "ordinal": 25
+      },
+      {
+        "machine_type": "n2-highmem-80",
+        "family": "n2",
+        "vcpus": 80,
+        "ram_gb": 640,
+        "hourly_price": 5.24056,
+        "monthly_price": 3825.6088,
+        "annual_price": 45907.3056,
+        "ordinal": 26
+      },
+      {
+        "machine_type": "n2-standard-128",
+        "family": "n2",
+        "vcpus": 128,
+        "ram_gb": 512,
+        "hourly_price": 6.215552,
+        "monthly_price": 4537.353,
+        "annual_price": 54448.2355,
+        "ordinal": 27
+      }
+    ]
+  },
+  "c3": {
+    "family": "c3",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.03465,
+    "ram_hourly_price_per_gb": 0.003938,
+    "skus": [
+      {
+        "sku_id": "071C-145A-16E0",
+        "description": "C3 Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003938
+      },
+      {
+        "sku_id": "61D6-7276-CF5F",
+        "description": "Sole Tenancy Premium for C3 Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0003938
+      },
+      {
+        "sku_id": "7608-453B-C96C",
+        "description": "Sole Tenancy Premium for C3 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.003465
+      },
+      {
+        "sku_id": "A863-36FC-11D8",
+        "description": "C3 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03465
+      },
+      {
+        "sku_id": "E39F-DC3A-9F99",
+        "description": "C3 Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003938
+      },
+      {
+        "sku_id": "E4AE-E326-889C",
+        "description": "C3 Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03465
+      }
+    ]
+  },
+  "n4": {
+    "family": "n4",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.03119,
+    "ram_hourly_price_per_gb": 0.00354,
+    "skus": [
+      {
+        "sku_id": "1C3C-9EBD-240F",
+        "description": "N4 Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03119
+      },
+      {
+        "sku_id": "2BC4-B10A-2F24",
+        "description": "N4 Custom Extended Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00874597
+      },
+      {
+        "sku_id": "36D5-78B0-A4D9",
+        "description": "N4 Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00354
+      },
+      {
+        "sku_id": "95A6-28F2-D7ED",
+        "description": "N4 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03119
+      },
+      {
+        "sku_id": "A217-8CD8-BAF3",
+        "description": "Sole Tenancy Overcommit Premium for N4 Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0009255
+      },
+      {
+        "sku_id": "AA70-929F-C3DE",
+        "description": "Sole Tenancy Overcommit Premium for N4 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0081445
+      },
+      {
+        "sku_id": "B801-EC3C-890A",
+        "description": "N4 Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00354
+      },
+      {
+        "sku_id": "DC43-5749-560E",
+        "description": "Sole Tenancy Premium for N4 Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.003119
+      },
+      {
+        "sku_id": "E0DF-FBFE-E428",
+        "description": "Sole Tenancy Premium for N4 Sole Tenancy Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.000354
+      },
+      {
+        "sku_id": "F609-4A77-958D",
+        "description": "N4 Custom Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003717
+      },
+      {
+        "sku_id": "FA18-A991-6424",
+        "description": "N4 Custom Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.03275
+      }
+    ]
+  },
+  "n2d": {
+    "family": "n2d",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.027502,
+    "ram_hourly_price_per_gb": 0.003686,
+    "skus": [
+      {
+        "sku_id": "1C63-070B-F9A0",
+        "description": "Sole Tenancy Premium for N2D AMD Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0003686
+      },
+      {
+        "sku_id": "1CE1-29CF-CC9F",
+        "description": "Sole Tenancy Premium for N2D AMD Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0027502
+      },
+      {
+        "sku_id": "5535-6D2D-4B50",
+        "description": "N2D AMD Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003686
+      },
+      {
+        "sku_id": "55FE-5117-DF8B",
+        "description": "N2D AMD Custom Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0288771
+      },
+      {
+        "sku_id": "5D0A-9A49-53E1",
+        "description": "Sole Tenancy Overcommit Premium for N2D AMD Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0068755
+      },
+      {
+        "sku_id": "A03E-E620-7389",
+        "description": "N2D AMD Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.027502
+      },
+      {
+        "sku_id": "C155-67FE-81D8",
+        "description": "N2D AMD Sole Tenancy Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.027502
+      },
+      {
+        "sku_id": "CC77-3AED-816F",
+        "description": "N2D AMD Custom Extended Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.008309
+      },
+      {
+        "sku_id": "CED4-7119-A546",
+        "description": "N2D AMD Custom Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0038703
+      },
+      {
+        "sku_id": "E011-E2D6-130E",
+        "description": "N2D AMD Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003686
+      },
+      {
+        "sku_id": "F514-C51F-FC35",
+        "description": "Sole Tenancy Overcommit Premium for N2D AMD Sole Tenancy Instance RAM running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0009215
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "n2d-highcpu-2",
+        "family": "n2d",
+        "vcpus": 2,
+        "ram_gb": 2,
+        "hourly_price": 0.062376,
+        "monthly_price": 45.5345,
+        "annual_price": 546.4138,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "n2d-standard-2",
+        "family": "n2d",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.084492,
+        "monthly_price": 61.6792,
+        "annual_price": 740.1499,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "n2d-highmem-2",
+        "family": "n2d",
+        "vcpus": 2,
+        "ram_gb": 16,
+        "hourly_price": 0.11398,
+        "monthly_price": 83.2054,
+        "annual_price": 998.4648,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "n2d-highcpu-4",
+        "family": "n2d",
+        "vcpus": 4,
+        "ram_gb": 4,
+        "hourly_price": 0.124752,
+        "monthly_price": 91.069,
+        "annual_price": 1092.8275,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "n2d-standard-4",
+        "family": "n2d",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.168984,
+        "monthly_price": 123.3583,
+        "annual_price": 1480.2998,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "n2d-highmem-4",
+        "family": "n2d",
+        "vcpus": 4,
+        "ram_gb": 32,
+        "hourly_price": 0.22796,
+        "monthly_price": 166.4108,
+        "annual_price": 1996.9296,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "n2d-highcpu-8",
+        "family": "n2d",
+        "vcpus": 8,
+        "ram_gb": 8,
+        "hourly_price": 0.249504,
+        "monthly_price": 182.1379,
+        "annual_price": 2185.655,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "n2d-standard-8",
+        "family": "n2d",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.337968,
+        "monthly_price": 246.7166,
+        "annual_price": 2960.5997,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "n2d-highmem-8",
+        "family": "n2d",
+        "vcpus": 8,
+        "ram_gb": 64,
+        "hourly_price": 0.45592,
+        "monthly_price": 332.8216,
+        "annual_price": 3993.8592,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "n2d-highcpu-16",
+        "family": "n2d",
+        "vcpus": 16,
+        "ram_gb": 16,
+        "hourly_price": 0.499008,
+        "monthly_price": 364.2758,
+        "annual_price": 4371.3101,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "n2d-standard-16",
+        "family": "n2d",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.675936,
+        "monthly_price": 493.4333,
+        "annual_price": 5921.1994,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "n2d-highmem-16",
+        "family": "n2d",
+        "vcpus": 16,
+        "ram_gb": 128,
+        "hourly_price": 0.91184,
+        "monthly_price": 665.6432,
+        "annual_price": 7987.7184,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "n2d-highcpu-32",
+        "family": "n2d",
+        "vcpus": 32,
+        "ram_gb": 32,
+        "hourly_price": 0.998016,
+        "monthly_price": 728.5517,
+        "annual_price": 8742.6202,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "n2d-standard-32",
+        "family": "n2d",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.351872,
+        "monthly_price": 986.8666,
+        "annual_price": 11842.3987,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "n2d-highcpu-48",
+        "family": "n2d",
+        "vcpus": 48,
+        "ram_gb": 48,
+        "hourly_price": 1.497024,
+        "monthly_price": 1092.8275,
+        "annual_price": 13113.9302,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "n2d-highmem-32",
+        "family": "n2d",
+        "vcpus": 32,
+        "ram_gb": 256,
+        "hourly_price": 1.82368,
+        "monthly_price": 1331.2864,
+        "annual_price": 15975.4368,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "n2d-highcpu-64",
+        "family": "n2d",
+        "vcpus": 64,
+        "ram_gb": 64,
+        "hourly_price": 1.996032,
+        "monthly_price": 1457.1034,
+        "annual_price": 17485.2403,
+        "ordinal": 17
+      },
+      {
+        "machine_type": "n2d-standard-48",
+        "family": "n2d",
+        "vcpus": 48,
+        "ram_gb": 192,
+        "hourly_price": 2.027808,
+        "monthly_price": 1480.2998,
+        "annual_price": 17763.5981,
+        "ordinal": 18
+      },
+      {
+        "machine_type": "n2d-standard-64",
+        "family": "n2d",
+        "vcpus": 64,
+        "ram_gb": 256,
+        "hourly_price": 2.703744,
+        "monthly_price": 1973.7331,
+        "annual_price": 23684.7974,
+        "ordinal": 19
+      },
+      {
+        "machine_type": "n2d-highmem-48",
+        "family": "n2d",
+        "vcpus": 48,
+        "ram_gb": 384,
+        "hourly_price": 2.73552,
+        "monthly_price": 1996.9296,
+        "annual_price": 23963.1552,
+        "ordinal": 20
+      },
+      {
+        "machine_type": "n2d-highcpu-96",
+        "family": "n2d",
+        "vcpus": 96,
+        "ram_gb": 96,
+        "hourly_price": 2.994048,
+        "monthly_price": 2185.655,
+        "annual_price": 26227.8605,
+        "ordinal": 21
+      },
+      {
+        "machine_type": "n2d-highmem-64",
+        "family": "n2d",
+        "vcpus": 64,
+        "ram_gb": 512,
+        "hourly_price": 3.64736,
+        "monthly_price": 2662.5728,
+        "annual_price": 31950.8736,
+        "ordinal": 22
+      },
+      {
+        "machine_type": "n2d-standard-96",
+        "family": "n2d",
+        "vcpus": 96,
+        "ram_gb": 384,
+        "hourly_price": 4.055616,
+        "monthly_price": 2960.5997,
+        "annual_price": 35527.1962,
+        "ordinal": 23
+      },
+      {
+        "machine_type": "n2d-standard-128",
+        "family": "n2d",
+        "vcpus": 128,
+        "ram_gb": 512,
+        "hourly_price": 5.407488,
+        "monthly_price": 3947.4662,
+        "annual_price": 47369.5949,
+        "ordinal": 24
+      },
+      {
+        "machine_type": "n2d-highmem-96",
+        "family": "n2d",
+        "vcpus": 96,
+        "ram_gb": 768,
+        "hourly_price": 5.47104,
+        "monthly_price": 3993.8592,
+        "annual_price": 47926.3104,
+        "ordinal": 25
+      },
+      {
+        "machine_type": "n2d-standard-224",
+        "family": "n2d",
+        "vcpus": 224,
+        "ram_gb": 896,
+        "hourly_price": 9.463104,
+        "monthly_price": 6908.0659,
+        "annual_price": 82896.791,
+        "ordinal": 26
+      }
+    ]
+  },
+  "a2": {
+    "family": "a2",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.031611,
+    "ram_hourly_price_per_gb": 0.004237,
+    "skus": [
+      {
+        "sku_id": "2390-DCAF-DA38",
+        "description": "A2 Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.004237
+      },
+      {
+        "sku_id": "2922-40C5-B19F",
+        "description": "A2 Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.031611
+      },
+      {
+        "sku_id": "C099-1D9D-26EA",
+        "description": "DWS Defined Duration A2 Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00233
+      },
+      {
+        "sku_id": "CF97-256B-D7DB",
+        "description": "DWS Defined Duration A2 Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.017386
+      }
+    ]
+  },
+  "n1": {
+    "family": "n1",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.031611,
+    "ram_hourly_price_per_gb": 0.004237,
+    "skus": [
+      {
+        "sku_id": "2E27-4F75-95CD",
+        "description": "N1 Predefined Instance Core running in Americas",
+        "resource_group": "N1Standard",
+        "hourly_price": 0.031611
+      },
+      {
+        "sku_id": "6552-620B-C9D5",
+        "description": "DWS Defined Duration N1 Predefined Core running in Americas",
+        "resource_group": "N1Standard",
+        "hourly_price": 0.031611
+      },
+      {
+        "sku_id": "6C71-E844-38BC",
+        "description": "N1 Predefined Instance Ram running in Americas",
+        "resource_group": "N1Standard",
+        "hourly_price": 0.004237
+      },
+      {
+        "sku_id": "AD86-1CFC-0F32",
+        "description": "DWS Defined Duration N1 Predefined Ram running in Americas",
+        "resource_group": "N1Standard",
+        "hourly_price": 0.004237
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "n1-standard-1",
+        "family": "n1",
+        "vcpus": 1,
+        "ram_gb": 3.75,
+        "hourly_price": 0.0475,
+        "monthly_price": 34.675,
+        "annual_price": 416.1,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "n1-highcpu-2",
+        "family": "n1",
+        "vcpus": 2,
+        "ram_gb": 1.8,
+        "hourly_price": 0.070849,
+        "monthly_price": 51.7198,
+        "annual_price": 620.6372,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "n1-standard-2",
+        "family": "n1",
+        "vcpus": 2,
+        "ram_gb": 7.5,
+        "hourly_price": 0.095,
+        "monthly_price": 69.35,
+        "annual_price": 832.2,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "n1-highmem-2",
+        "family": "n1",
+        "vcpus": 2,
+        "ram_gb": 13,
+        "hourly_price": 0.118303,
+        "monthly_price": 86.3612,
+        "annual_price": 1036.3343,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "n1-highcpu-4",
+        "family": "n1",
+        "vcpus": 4,
+        "ram_gb": 3.6,
+        "hourly_price": 0.141697,
+        "monthly_price": 103.4388,
+        "annual_price": 1241.2657,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "n1-standard-4",
+        "family": "n1",
+        "vcpus": 4,
+        "ram_gb": 15,
+        "hourly_price": 0.189999,
+        "monthly_price": 138.6993,
+        "annual_price": 1664.3912,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "n1-highmem-4",
+        "family": "n1",
+        "vcpus": 4,
+        "ram_gb": 26,
+        "hourly_price": 0.236606,
+        "monthly_price": 172.7224,
+        "annual_price": 2072.6686,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "n1-highcpu-8",
+        "family": "n1",
+        "vcpus": 8,
+        "ram_gb": 7.2,
+        "hourly_price": 0.283394,
+        "monthly_price": 206.8776,
+        "annual_price": 2482.5314,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "n1-standard-8",
+        "family": "n1",
+        "vcpus": 8,
+        "ram_gb": 30,
+        "hourly_price": 0.379998,
+        "monthly_price": 277.3985,
+        "annual_price": 3328.7825,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "n1-highmem-8",
+        "family": "n1",
+        "vcpus": 8,
+        "ram_gb": 52,
+        "hourly_price": 0.473212,
+        "monthly_price": 345.4448,
+        "annual_price": 4145.3371,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "n1-highcpu-16",
+        "family": "n1",
+        "vcpus": 16,
+        "ram_gb": 14.4,
+        "hourly_price": 0.566789,
+        "monthly_price": 413.756,
+        "annual_price": 4965.0716,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "n1-standard-16",
+        "family": "n1",
+        "vcpus": 16,
+        "ram_gb": 60,
+        "hourly_price": 0.759996,
+        "monthly_price": 554.7971,
+        "annual_price": 6657.565,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "n1-highmem-16",
+        "family": "n1",
+        "vcpus": 16,
+        "ram_gb": 104,
+        "hourly_price": 0.946424,
+        "monthly_price": 690.8895,
+        "annual_price": 8290.6742,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "n1-highcpu-32",
+        "family": "n1",
+        "vcpus": 32,
+        "ram_gb": 28.8,
+        "hourly_price": 1.133578,
+        "monthly_price": 827.5119,
+        "annual_price": 9930.1433,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "n1-standard-32",
+        "family": "n1",
+        "vcpus": 32,
+        "ram_gb": 120,
+        "hourly_price": 1.519992,
+        "monthly_price": 1109.5942,
+        "annual_price": 13315.1299,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "n1-highmem-32",
+        "family": "n1",
+        "vcpus": 32,
+        "ram_gb": 208,
+        "hourly_price": 1.892848,
+        "monthly_price": 1381.779,
+        "annual_price": 16581.3485,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "n1-highcpu-64",
+        "family": "n1",
+        "vcpus": 64,
+        "ram_gb": 57.6,
+        "hourly_price": 2.267155,
+        "monthly_price": 1655.0231,
+        "annual_price": 19860.2778,
+        "ordinal": 17
+      },
+      {
+        "machine_type": "n1-standard-64",
+        "family": "n1",
+        "vcpus": 64,
+        "ram_gb": 240,
+        "hourly_price": 3.039984,
+        "monthly_price": 2219.1883,
+        "annual_price": 26630.2598,
+        "ordinal": 18
+      },
+      {
+        "machine_type": "n1-highcpu-96",
+        "family": "n1",
+        "vcpus": 96,
+        "ram_gb": 86.4,
+        "hourly_price": 3.400733,
+        "monthly_price": 2482.5351,
+        "annual_price": 29790.4211,
+        "ordinal": 19
+      },
+      {
+        "machine_type": "n1-highmem-64",
+        "family": "n1",
+        "vcpus": 64,
+        "ram_gb": 416,
+        "hourly_price": 3.785696,
+        "monthly_price": 2763.5581,
+        "annual_price": 33162.697,
+        "ordinal": 20
+      },
+      {
+        "machine_type": "n1-standard-96",
+        "family": "n1",
+        "vcpus": 96,
+        "ram_gb": 360,
+        "hourly_price": 4.559976,
+        "monthly_price": 3328.7825,
+        "annual_price": 39945.3898,
+        "ordinal": 21
+      },
+      {
+        "machine_type": "n1-highmem-96",
+        "family": "n1",
+        "vcpus": 96,
+        "ram_gb": 624,
+        "hourly_price": 5.678544,
+        "monthly_price": 4145.3371,
+        "annual_price": 49744.0454,
+        "ordinal": 22
+      }
+    ]
+  },
+  "c2d": {
+    "family": "c2d",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.029563,
+    "ram_hourly_price_per_gb": 0.003959,
+    "skus": [
+      {
+        "sku_id": "5E86-72F2-5688",
+        "description": "C2D AMD Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.029563
+      },
+      {
+        "sku_id": "C79B-C925-A9B9",
+        "description": "C2D AMD Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003959
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "c2d-highcpu-2",
+        "family": "c2d",
+        "vcpus": 2,
+        "ram_gb": 2,
+        "hourly_price": 0.067044,
+        "monthly_price": 48.9421,
+        "annual_price": 587.3054,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "c2d-standard-2",
+        "family": "c2d",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.090798,
+        "monthly_price": 66.2825,
+        "annual_price": 795.3905,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "c2d-highmem-2",
+        "family": "c2d",
+        "vcpus": 2,
+        "ram_gb": 16,
+        "hourly_price": 0.12247,
+        "monthly_price": 89.4031,
+        "annual_price": 1072.8372,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "c2d-highcpu-4",
+        "family": "c2d",
+        "vcpus": 4,
+        "ram_gb": 4,
+        "hourly_price": 0.134088,
+        "monthly_price": 97.8842,
+        "annual_price": 1174.6109,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "c2d-standard-4",
+        "family": "c2d",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.181596,
+        "monthly_price": 132.5651,
+        "annual_price": 1590.781,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "c2d-highmem-4",
+        "family": "c2d",
+        "vcpus": 4,
+        "ram_gb": 32,
+        "hourly_price": 0.24494,
+        "monthly_price": 178.8062,
+        "annual_price": 2145.6744,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "c2d-highcpu-8",
+        "family": "c2d",
+        "vcpus": 8,
+        "ram_gb": 8,
+        "hourly_price": 0.268176,
+        "monthly_price": 195.7685,
+        "annual_price": 2349.2218,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "c2d-standard-8",
+        "family": "c2d",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.363192,
+        "monthly_price": 265.1302,
+        "annual_price": 3181.5619,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "c2d-highmem-8",
+        "family": "c2d",
+        "vcpus": 8,
+        "ram_gb": 64,
+        "hourly_price": 0.48988,
+        "monthly_price": 357.6124,
+        "annual_price": 4291.3488,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "c2d-highcpu-16",
+        "family": "c2d",
+        "vcpus": 16,
+        "ram_gb": 16,
+        "hourly_price": 0.536352,
+        "monthly_price": 391.537,
+        "annual_price": 4698.4435,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "c2d-standard-16",
+        "family": "c2d",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.726384,
+        "monthly_price": 530.2603,
+        "annual_price": 6363.1238,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "c2d-highmem-16",
+        "family": "c2d",
+        "vcpus": 16,
+        "ram_gb": 128,
+        "hourly_price": 0.97976,
+        "monthly_price": 715.2248,
+        "annual_price": 8582.6976,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "c2d-highcpu-32",
+        "family": "c2d",
+        "vcpus": 32,
+        "ram_gb": 32,
+        "hourly_price": 1.072704,
+        "monthly_price": 783.0739,
+        "annual_price": 9396.887,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "c2d-standard-32",
+        "family": "c2d",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.452768,
+        "monthly_price": 1060.5206,
+        "annual_price": 12726.2477,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "c2d-highcpu-56",
+        "family": "c2d",
+        "vcpus": 56,
+        "ram_gb": 56,
+        "hourly_price": 1.877232,
+        "monthly_price": 1370.3794,
+        "annual_price": 16444.5523,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "c2d-highmem-32",
+        "family": "c2d",
+        "vcpus": 32,
+        "ram_gb": 256,
+        "hourly_price": 1.95952,
+        "monthly_price": 1430.4496,
+        "annual_price": 17165.3952,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "c2d-standard-56",
+        "family": "c2d",
+        "vcpus": 56,
+        "ram_gb": 224,
+        "hourly_price": 2.542344,
+        "monthly_price": 1855.9111,
+        "annual_price": 22270.9334,
+        "ordinal": 17
+      },
+      {
+        "machine_type": "c2d-highmem-56",
+        "family": "c2d",
+        "vcpus": 56,
+        "ram_gb": 448,
+        "hourly_price": 3.42916,
+        "monthly_price": 2503.2868,
+        "annual_price": 30039.4416,
+        "ordinal": 18
+      },
+      {
+        "machine_type": "c2d-highcpu-112",
+        "family": "c2d",
+        "vcpus": 112,
+        "ram_gb": 112,
+        "hourly_price": 3.754464,
+        "monthly_price": 2740.7587,
+        "annual_price": 32889.1046,
+        "ordinal": 19
+      },
+      {
+        "machine_type": "c2d-standard-112",
+        "family": "c2d",
+        "vcpus": 112,
+        "ram_gb": 448,
+        "hourly_price": 5.084688,
+        "monthly_price": 3711.8222,
+        "annual_price": 44541.8669,
+        "ordinal": 20
+      },
+      {
+        "machine_type": "c2d-highmem-112",
+        "family": "c2d",
+        "vcpus": 112,
+        "ram_gb": 896,
+        "hourly_price": 6.85832,
+        "monthly_price": 5006.5736,
+        "annual_price": 60078.8832,
+        "ordinal": 21
+      }
+    ]
+  },
+  "e2": {
+    "family": "e2",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.02181159,
+    "ram_hourly_price_per_gb": 0.00292353,
+    "skus": [
+      {
+        "sku_id": "61C6-6F89-DCF4",
+        "description": "E2 Custom Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.02290217
+      },
+      {
+        "sku_id": "8D24-CB74-5E70",
+        "description": "E2 Custom Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00306971
+      },
+      {
+        "sku_id": "CF4E-A0C7-E3BF",
+        "description": "E2 Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.02181159
+      },
+      {
+        "sku_id": "F449-33EC-A5EF",
+        "description": "E2 Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.00292353
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "e2-micro",
+        "family": "e2",
+        "vcpus": 0.25,
+        "ram_gb": 1,
+        "hourly_price": 0.008376,
+        "monthly_price": 6.1145,
+        "annual_price": 73.3738,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "e2-small",
+        "family": "e2",
+        "vcpus": 0.5,
+        "ram_gb": 2,
+        "hourly_price": 0.016753,
+        "monthly_price": 12.2297,
+        "annual_price": 146.7563,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "e2-medium",
+        "family": "e2",
+        "vcpus": 1,
+        "ram_gb": 4,
+        "hourly_price": 0.033506,
+        "monthly_price": 24.4594,
+        "annual_price": 293.5126,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "e2-highcpu-2",
+        "family": "e2",
+        "vcpus": 2,
+        "ram_gb": 2,
+        "hourly_price": 0.04947,
+        "monthly_price": 36.1131,
+        "annual_price": 433.3572,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "e2-standard-2",
+        "family": "e2",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.067011,
+        "monthly_price": 48.918,
+        "annual_price": 587.0164,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "e2-highmem-2",
+        "family": "e2",
+        "vcpus": 2,
+        "ram_gb": 16,
+        "hourly_price": 0.0904,
+        "monthly_price": 65.992,
+        "annual_price": 791.904,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "e2-highcpu-4",
+        "family": "e2",
+        "vcpus": 4,
+        "ram_gb": 4,
+        "hourly_price": 0.09894,
+        "monthly_price": 72.2262,
+        "annual_price": 866.7144,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "e2-standard-4",
+        "family": "e2",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.134023,
+        "monthly_price": 97.8368,
+        "annual_price": 1174.0415,
+        "ordinal": 8
+      },
+      {
+        "machine_type": "e2-highmem-4",
+        "family": "e2",
+        "vcpus": 4,
+        "ram_gb": 32,
+        "hourly_price": 0.180799,
+        "monthly_price": 131.9833,
+        "annual_price": 1583.7992,
+        "ordinal": 9
+      },
+      {
+        "machine_type": "e2-highcpu-8",
+        "family": "e2",
+        "vcpus": 8,
+        "ram_gb": 8,
+        "hourly_price": 0.197881,
+        "monthly_price": 144.4531,
+        "annual_price": 1733.4376,
+        "ordinal": 10
+      },
+      {
+        "machine_type": "e2-standard-8",
+        "family": "e2",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.268046,
+        "monthly_price": 195.6736,
+        "annual_price": 2348.083,
+        "ordinal": 11
+      },
+      {
+        "machine_type": "e2-highmem-8",
+        "family": "e2",
+        "vcpus": 8,
+        "ram_gb": 64,
+        "hourly_price": 0.361599,
+        "monthly_price": 263.9673,
+        "annual_price": 3167.6072,
+        "ordinal": 12
+      },
+      {
+        "machine_type": "e2-highcpu-16",
+        "family": "e2",
+        "vcpus": 16,
+        "ram_gb": 16,
+        "hourly_price": 0.395762,
+        "monthly_price": 288.9063,
+        "annual_price": 3466.8751,
+        "ordinal": 13
+      },
+      {
+        "machine_type": "e2-standard-16",
+        "family": "e2",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.536091,
+        "monthly_price": 391.3464,
+        "annual_price": 4696.1572,
+        "ordinal": 14
+      },
+      {
+        "machine_type": "e2-highmem-16",
+        "family": "e2",
+        "vcpus": 16,
+        "ram_gb": 128,
+        "hourly_price": 0.723197,
+        "monthly_price": 527.9338,
+        "annual_price": 6335.2057,
+        "ordinal": 15
+      },
+      {
+        "machine_type": "e2-highcpu-32",
+        "family": "e2",
+        "vcpus": 32,
+        "ram_gb": 32,
+        "hourly_price": 0.791524,
+        "monthly_price": 577.8125,
+        "annual_price": 6933.7502,
+        "ordinal": 16
+      },
+      {
+        "machine_type": "e2-standard-32",
+        "family": "e2",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.072183,
+        "monthly_price": 782.6936,
+        "annual_price": 9392.3231,
+        "ordinal": 17
+      }
+    ]
+  },
+  "t2a": {
+    "family": "t2a",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.0249,
+    "ram_hourly_price_per_gb": 0.0034,
+    "skus": [
+      {
+        "sku_id": "7F42-2C35-6872",
+        "description": "T2A Arm Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.0249
+      },
+      {
+        "sku_id": "C5C1-548B-71FE",
+        "description": "T2A Arm Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.0034
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "t2a-standard-1",
+        "family": "t2a",
+        "vcpus": 1,
+        "ram_gb": 4,
+        "hourly_price": 0.0385,
+        "monthly_price": 28.105,
+        "annual_price": 337.26,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "t2a-standard-2",
+        "family": "t2a",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.077,
+        "monthly_price": 56.21,
+        "annual_price": 674.52,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "t2a-standard-4",
+        "family": "t2a",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.154,
+        "monthly_price": 112.42,
+        "annual_price": 1349.04,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "t2a-standard-8",
+        "family": "t2a",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.308,
+        "monthly_price": 224.84,
+        "annual_price": 2698.08,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "t2a-standard-16",
+        "family": "t2a",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.616,
+        "monthly_price": 449.68,
+        "annual_price": 5396.16,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "t2a-standard-32",
+        "family": "t2a",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.232,
+        "monthly_price": 899.36,
+        "annual_price": 10792.32,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "t2a-standard-48",
+        "family": "t2a",
+        "vcpus": 48,
+        "ram_gb": 192,
+        "hourly_price": 1.848,
+        "monthly_price": 1349.04,
+        "annual_price": 16188.48,
+        "ordinal": 7
+      }
+    ]
+  },
+  "t2d": {
+    "family": "t2d",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.027502,
+    "ram_hourly_price_per_gb": 0.003686,
+    "skus": [
+      {
+        "sku_id": "EFE6-E23C-19CB",
+        "description": "T2D AMD Instance Core running in Americas",
+        "resource_group": "CPU",
+        "hourly_price": 0.027502
+      },
+      {
+        "sku_id": "FB05-036A-8982",
+        "description": "T2D AMD Instance Ram running in Americas",
+        "resource_group": "RAM",
+        "hourly_price": 0.003686
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "t2d-standard-1",
+        "family": "t2d",
+        "vcpus": 1,
+        "ram_gb": 4,
+        "hourly_price": 0.042246,
+        "monthly_price": 30.8396,
+        "annual_price": 370.075,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "t2d-standard-2",
+        "family": "t2d",
+        "vcpus": 2,
+        "ram_gb": 8,
+        "hourly_price": 0.084492,
+        "monthly_price": 61.6792,
+        "annual_price": 740.1499,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "t2d-standard-4",
+        "family": "t2d",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.168984,
+        "monthly_price": 123.3583,
+        "annual_price": 1480.2998,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "t2d-standard-8",
+        "family": "t2d",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.337968,
+        "monthly_price": 246.7166,
+        "annual_price": 2960.5997,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "t2d-standard-16",
+        "family": "t2d",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.675936,
+        "monthly_price": 493.4333,
+        "annual_price": 5921.1994,
+        "ordinal": 5
+      },
+      {
+        "machine_type": "t2d-standard-32",
+        "family": "t2d",
+        "vcpus": 32,
+        "ram_gb": 128,
+        "hourly_price": 1.351872,
+        "monthly_price": 986.8666,
+        "annual_price": 11842.3987,
+        "ordinal": 6
+      },
+      {
+        "machine_type": "t2d-standard-48",
+        "family": "t2d",
+        "vcpus": 48,
+        "ram_gb": 192,
+        "hourly_price": 2.027808,
+        "monthly_price": 1480.2998,
+        "annual_price": 17763.5981,
+        "ordinal": 7
+      },
+      {
+        "machine_type": "t2d-standard-60",
+        "family": "t2d",
+        "vcpus": 60,
+        "ram_gb": 240,
+        "hourly_price": 2.53476,
+        "monthly_price": 1850.3748,
+        "annual_price": 22204.4976,
+        "ordinal": 8
+      }
+    ]
+  },
+  "c2": {
+    "family": "c2",
+    "region": "us-central1",
+    "cpu_hourly_price": 0.03398,
+    "ram_hourly_price_per_gb": 0.00455,
+    "skus": [
+      {
+        "sku_id": "hardcoded",
+        "description": "C2 Instance Core running in Americas (hardcoded)",
+        "resource_group": "CPU",
+        "hourly_price": 0.03398
+      },
+      {
+        "sku_id": "hardcoded",
+        "description": "C2 Instance Ram running in Americas (hardcoded)",
+        "resource_group": "RAM",
+        "hourly_price": 0.00455
+      }
+    ],
+    "machine_types": [
+      {
+        "machine_type": "c2-standard-4",
+        "family": "c2",
+        "vcpus": 4,
+        "ram_gb": 16,
+        "hourly_price": 0.20872,
+        "monthly_price": 152.3656,
+        "annual_price": 1828.3872,
+        "ordinal": 1
+      },
+      {
+        "machine_type": "c2-standard-8",
+        "family": "c2",
+        "vcpus": 8,
+        "ram_gb": 32,
+        "hourly_price": 0.41744,
+        "monthly_price": 304.7312,
+        "annual_price": 3656.7744,
+        "ordinal": 2
+      },
+      {
+        "machine_type": "c2-standard-16",
+        "family": "c2",
+        "vcpus": 16,
+        "ram_gb": 64,
+        "hourly_price": 0.83488,
+        "monthly_price": 609.4624,
+        "annual_price": 7313.5488,
+        "ordinal": 3
+      },
+      {
+        "machine_type": "c2-standard-30",
+        "family": "c2",
+        "vcpus": 30,
+        "ram_gb": 120,
+        "hourly_price": 1.5654,
+        "monthly_price": 1142.742,
+        "annual_price": 13712.904,
+        "ordinal": 4
+      },
+      {
+        "machine_type": "c2-standard-60",
+        "family": "c2",
+        "vcpus": 60,
+        "ram_gb": 240,
+        "hourly_price": 3.1308,
+        "monthly_price": 2285.484,
+        "annual_price": 27425.808,
+        "ordinal": 5
+      }
+    ]
+  }
+}
