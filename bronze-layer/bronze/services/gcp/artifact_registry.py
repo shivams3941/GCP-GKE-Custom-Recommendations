@@ -1,103 +1,184 @@
-from bronze.services.gcp.types import GCPDecisionRule, GCPMetricSignal, GCPServiceCatalog
+"""GCP Artifact Registry service definition — pure config, no logic.
 
-ARTIFACT_REGISTRY_SERVICE = GCPServiceCatalog(
-    service_name="Artifact Registry",
-    status_idle=[
-        "artifactregistry.googleapis.com/repository/request_count",
-        "artifactregistry.googleapis.com/repository/api/request_count",
-        "artifactregistry.googleapis.com/repository/size",
+Declares how to fetch Artifact Registry repositories from GCP,
+and which Iceberg tables to write them to.
+
+Authentication:
+- GCP credentials are loaded at runtime via bronze.auth.gcp_auth.get_gcp_credentials()
+- The service account key JSON is stored in AWS Secrets Manager under
+  the secret name defined in GCP_SECRET_NAME (gcp/devops-internal/service-account)
+
+Notes:
+- resource_id is composed as "project_id.location.repository_name" for a clean,
+  unambiguous primary key across multi-project/multi-region setups.
+- Metrics are project-level under the artifactregistry.googleapis.com namespace.
+- Idle signal: request_count + pull_count + push_count near-zero over 14–30 days.
+- Overprovisioned signal: high stored_bytes with very low request_count over 30 days.
+- Cleanup policies are the primary cost lever — always check before recommending deletion.
+- Multi-region repositories cannot be downgraded to regional; migration requires
+  creating a new regional repository and re-pushing artifacts.
+"""
+
+from google.cloud import artifactregistry_v1
+
+from bronze.config.table_config import TableConfig
+from bronze.services.base import MetricDefinition, MetricSpec, ResourceFetcher, ServiceDefinition
+
+# ---------------------------------------------------------------------------
+# Table configs
+# ---------------------------------------------------------------------------
+
+ARTIFACT_REGISTRY_REPOSITORIES_TABLE = TableConfig(
+    table_name="bronze_gcp_artifact_registry_repositories",
+    s3_path_suffix="gcp/artifact_registry_repositories",
+    key_columns=("client_id", "account_id", "resource_id"),
+    partition_columns=("client_id", "account_id", "year_month"),
+    column_schema={
+        "resource_id": "string",            # project_id.location.repository_name
+        "resource_name": "string",          # repository display name
+        "project_id": "string",
+        "location": "string",               # region (e.g. us-central1) or multi-region (e.g. us)
+        "repository_name": "string",
+        "description": "string",
+        "format": "string",                 # DOCKER, MAVEN, NPM, PYTHON, HELM, APT, YUM, GENERIC
+        "mode": "string",                   # STANDARD_REPOSITORY, VIRTUAL_REPOSITORY, REMOTE_REPOSITORY
+        "kms_key_name": "string",           # CMEK key if set
+        "size_bytes": "double",             # total stored bytes
+        "cleanup_policy_dry_run": "string", # "true" / "false"
+        "labels": "map<string,string>",
+        "create_time": "string",
+        "update_time": "string",
+        "client_id": "string",
+        "account_id": "string",
+        "cloud_name": "string",
+        "year_month": "string",
+        "ingestion_timestamp": "string",
+        "job_runtime_utc": "timestamp",
+    },
+)
+
+ARTIFACT_REGISTRY_METRICS_TABLE = TableConfig(
+    table_name="bronze_gcp_metrics_v2",
+    s3_path_suffix="gcp/metrics",
+    key_columns=("client_id", "account_id", "resource_id", "date", "metric_name", "aggregation_type"),
+    partition_columns=("client_id", "account_id", "year_month"),
+    column_schema={
+        "account_id": "string",
+        "aggregation_type": "string",
+        "client_id": "string",
+        "cloud_name": "string",
+        "date": "string",
+        "ingestion_timestamp": "string",
+        "job_runtime_utc": "timestamp",
+        "metric_date": "string",
+        "metric_name": "string",
+        "metric_type": "string",
+        "metric_unit": "string",
+        "metric_value": "double",
+        "namespace": "string",
+        "region": "string",
+        "resource_id": "string",
+        "resource_name": "string",
+        "service_name": "string",
+        "unit": "string",
+        "year_month": "string",
+    },
+)
+
+# ---------------------------------------------------------------------------
+# Field mappings: GCP SDK attribute dot-path → output column name
+# ---------------------------------------------------------------------------
+
+ARTIFACT_REGISTRY_REPOSITORY_FIELD_MAPPING = {
+    "name": "repository_name",          # full resource name; trimmed to short name at transform time
+    "description": "description",
+    "format_": "format",                # SDK uses format_ to avoid Python keyword clash
+    "mode": "mode",
+    "kms_key_name": "kms_key_name",
+    "size_bytes": "size_bytes",
+    "cleanup_policies": "cleanup_policy_dry_run",  # presence indicates cleanup policy configured
+    "labels": "labels",
+    "create_time": "create_time",
+    "update_time": "update_time",
+}
+
+# ---------------------------------------------------------------------------
+# Service definition
+# ---------------------------------------------------------------------------
+
+ARTIFACT_REGISTRY_SERVICE = ServiceDefinition(
+    name="ARTIFACT_REGISTRY",
+    namespace="artifactregistry.googleapis.com",
+    resource_fetchers=[
+        ResourceFetcher(
+            sdk_client_class=artifactregistry_v1.ArtifactRegistryClient,
+            list_method="list_repositories",
+            field_mapping=ARTIFACT_REGISTRY_REPOSITORY_FIELD_MAPPING,
+            table_config=ARTIFACT_REGISTRY_REPOSITORIES_TABLE,
+            composite_id_fields=("project_id", "location", "repository_name"),
+        ),
     ],
-    status_overprovisioned=[
-        "artifactregistry.googleapis.com/repository/size",
-        "artifactregistry.googleapis.com/project/request_count",
-    ],
-    metrics=[
-        # --- Idle signals ---
-        GCPMetricSignal(
-            metric_type="artifactregistry.googleapis.com/repository/request_count",
-            recommendation_type="Idle",
-            signal="No repository pull/push activity",
-            threshold="Sum = 0 or near 0 over 14-30 days",
-        ),
-        GCPMetricSignal(
-            metric_type="artifactregistry.googleapis.com/repository/api/request_count",
-            recommendation_type="Idle",
-            signal="No repository admin activity",
-            threshold="~0 over 14-30 days",
-        ),
-        GCPMetricSignal(
-            metric_type="artifactregistry.googleapis.com/repository/size",
-            recommendation_type="Idle",
-            signal="Repository empty or unchanged and unused",
-            threshold="Size = 0, or very small and flat, with near-zero requests for 14-30 days",
-        ),
-        # --- Overprovisioned / storage bloat signals ---
-        GCPMetricSignal(
-            metric_type="artifactregistry.googleapis.com/repository/size",
-            recommendation_type="Overprovisioned",
-            signal="Large retained storage with very low access",
-            threshold="High size with very low request_count over 30 days",
-        ),
-        GCPMetricSignal(
-            metric_type="artifactregistry.googleapis.com/project/request_count",
-            recommendation_type="Overprovisioned",
-            signal="Low overall project usage compared with stored footprint",
-            threshold="Low request volume for 30 days while repository storage remains high",
-        ),
-    ],
-    decision_rules=[
-        GCPDecisionRule(
-            finding="Idle: no requests + no pulls + no pushes for 30+ days",
-            target_type="Any",
-            recommended_action="Delete repository or archive contents and delete",
-            example="gcloud artifacts repositories delete REPO --location=REGION",
-            notes="Validate no active service, CI pipeline, or deployment references this repo before deletion.",
-        ),
-        GCPDecisionRule(
-            finding="Idle: storage present but zero activity (Docker)",
-            target_type="Docker",
-            recommended_action="Run cleanup policy (untagged + old tags), then delete if still unused",
-            example="Set cleanup policy: keep latest 3 tags, delete untagged after 7 days",
-            notes="Check cleanup policy status before recommending manual deletion.",
-        ),
-        GCPDecisionRule(
-            finding="Overprovisioned: old image versions never pulled (> 60 days)",
-            target_type="Docker",
-            recommended_action="Enable tag-based cleanup policy or delete stale digests",
-            example="Cleanup policy: delete versions with 0 pulls older than 60 days",
-            notes="Deleting a Docker repository permanently removes all images — confirm no consumers.",
-        ),
-        GCPDecisionRule(
-            finding="Overprovisioned: untagged/dangling layers > 20% of storage",
-            target_type="Docker",
-            recommended_action="Delete untagged images via cleanup policy",
-            example="Cleanup policy: delete untagged images after 1 day",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Overprovisioned: Maven/npm versions never downloaded",
-            target_type="Maven/npm",
-            recommended_action="Delete unpulled versions older than retention window",
-            example="Remove artifact versions with 0 downloads for > 90 days",
-            notes="",
-        ),
-        GCPDecisionRule(
-            finding="Overprovisioned: large Generic repo with infrequent access",
-            target_type="Generic",
-            recommended_action="Move artifacts to Cloud Storage (cheaper blob storage tier)",
-            example="Migrate binaries to GCS Nearline/Coldline based on access frequency",
-            notes="Multi-region repositories cannot be downgraded to regional — requires new repo + re-push.",
-        ),
-    ],
-    future_plans=[
-        "Integrate percentile metrics into bronze layer.",
-        "Ingest per-image-version pull counts at finer granularity.",
-        "Update backend, frontend, and RDS for cleanup policy status ingestion.",
-        "Use vulnerability scanning severity as a signal for unused + vulnerable image deletion.",
-    ],
-    references=[
-        "https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-artifactregistry",
-        "https://docs.cloud.google.com/artifact-registry/docs/supported-formats",
-        "https://docs.cloud.google.com/artifact-registry/docs/repositories/cleanup-policy-overview",
-    ],
+    metrics=MetricDefinition(
+        metric_specs=[
+            # --- Idle detection ---
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/request_count",
+                unit="Count",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/api/request_count",
+                unit="Count",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            # --- Storage / overprovisioned ---
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/size",
+                unit="Bytes",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            # --- Remote repository quota utilisation ---
+            MetricSpec(
+                "artifactregistry.googleapis.com/quota/project_region_upstream_host_reads/usage",
+                unit="Count",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            MetricSpec(
+                "artifactregistry.googleapis.com/quota/project_region_upstream_host_reads/limit",
+                unit="Count",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            # --- Data plane request latency (avg ms per repo) ---
+            # High latency with low request_count may indicate cold/stale repo
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/request_latencies",
+                unit="us",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            # --- Control plane request latency (avg ms per repo) ---
+            # Tracks latency for repo management operations (create, update, delete)
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/api/request_latencies",
+                unit="us",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+            # --- Control plane request count per repo ---
+            # Tracks management API calls (not data pulls); useful for activity baseline
+            MetricSpec(
+                "artifactregistry.googleapis.com/repository/api/request_count",
+                unit="Count",
+                aggregation="Average",
+                interval="PT5M",
+            ),
+        ],
+        resource_id_field="resource_id",
+        table_config=ARTIFACT_REGISTRY_METRICS_TABLE,
+    ),
 )
